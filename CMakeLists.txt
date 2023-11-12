@@ -7,6 +7,7 @@ project(la-1)
 find_package(OpenGL REQUIRED)
 find_package(SFML REQUIRED COMPONENTS system window graphics)
 find_package(ImGui-SFML REQUIRED)
+find_package(fmt REQUIRED)
 
 add_subdirectory(gauss)
 
@@ -19,6 +20,8 @@ target_link_libraries(la-1-bin
     sfml-graphics
 
     ImGui-SFML::ImGui-SFML
+
+    fmt::fmt
 
     gauss)
 

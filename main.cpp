@@ -1,5 +1,7 @@
 #include <string>
 
+#include <fmt/format.h>
+
 #include <SFML/Graphics/CircleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/System/Clock.hpp>
@@ -26,7 +28,7 @@ void render_input_table(gauss::matrix_t &m)
             ImGui::TableSetColumnIndex(column);
 
             const std::string label = (column == l - 1) ?
-                "b" + std::to_string(row + 1) : "x" + std::to_string(row + 1) + std::to_string(column + 1);
+                fmt::format("b{}", row + 1) : fmt::format("x{}{}", row + 1, column  + 1);
 
             ImGui::InputDouble(label.c_str(), &m[row][column]);
         }
@@ -45,7 +47,7 @@ std::string on_solve(gauss::matrix_t &m)
         message = "solutions: ";
 
         for (const double x : std::get<std::vector<double>>(result))
-            message += std::to_string(x) + ' ';
+            fmt::format_to(std::back_inserter(message), "{} ", x);
 
         message.pop_back();
     }
