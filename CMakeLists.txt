@@ -8,6 +8,7 @@ find_package(OpenGL REQUIRED)
 find_package(SFML REQUIRED COMPONENTS system window graphics)
 find_package(ImGui-SFML REQUIRED)
 find_package(fmt REQUIRED)
+find_package(GTest REQUIRED)
 
 add_subdirectory(gauss)
 
