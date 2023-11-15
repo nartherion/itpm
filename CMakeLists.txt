@@ -12,9 +12,9 @@ find_package(GTest REQUIRED)
 
 add_subdirectory(gauss)
 
-add_executable(la-1-bin main.cpp)
+add_executable(gauss-ui gauss-ui.cpp)
 
-target_link_libraries(la-1-bin
+target_link_libraries(gauss-ui
     PRIVATE
     sfml-system
     sfml-window
@@ -25,4 +25,12 @@ target_link_libraries(la-1-bin
     fmt::fmt
 
     gauss)
+
+add_executable(mvc mvc.cpp)
+
+target_link_libraries(mvc
+    PRIVATE
+    sfml-system
+    sfml-window
+    sfml-graphics)
 
