@@ -1,6 +1,3 @@
-#include <cstdlib>
-#include <iostream>
-
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -9,10 +6,7 @@ int main()
 
     sf::Texture texture;
     if (!texture.loadFromFile("guts.png"))
-    {
-        std::cerr << "failed to load the image" << '\n';
         return EXIT_FAILURE;
-    }
 
     sf::Sprite image;
     image.setTexture(texture);
@@ -42,5 +36,5 @@ int main()
         window.display();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
